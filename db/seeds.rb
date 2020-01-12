@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Flight.destroy_all
+Airline.destroy_all
+
+airlines = FactoryBot.create_list(:airline, 20)
+
+airlines.each do |airline|
+  10.times do
+    airline.flights << FactoryBot.create(:flight, airline_id: airline.id)
+  end
+end
