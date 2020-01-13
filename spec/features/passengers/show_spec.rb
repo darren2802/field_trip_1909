@@ -18,7 +18,7 @@ RSpec.describe 'Passenger Show Page' do
       within "#passenger-flight-#{passenger_flight.id}" do
         expect(page).to have_content(passenger_flight.number)
         click_link "#{passenger_flight.number}"
-        expect(current_path).to eq("/flights/#{passenger_flight.number}")
+        expect(current_path).to eq("/flights/#{passenger_flight.id}")
         visit "/passengers/#{@passenger.id}"
       end
     end
