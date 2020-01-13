@@ -5,7 +5,7 @@ class PassengersController < ApplicationController
 
   def update
     @passenger = Passenger.find(params[:id])
-    flight = Flight.find(params[:flight_number])
+    flight = Flight.find(params[:flight_id])
     flight.passengers << @passenger
 
     redirect_to "/passengers/#{@passenger.id}"

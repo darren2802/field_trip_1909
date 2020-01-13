@@ -15,8 +15,8 @@
 <section id='assign-passenger-to-flight'>
   <h4>Assign <%= @passenger.name %> to a flight:</h4>
   <%= form_tag "/passengers/#{@passenger.id}", method: :patch do %>
-    <%= label_tag :flight_number %>
-    <%= number_field_tag :flight_number %>
+    <%= label_tag :flight_id %>
+    <%= text_field_tag :flight_id %>
 
     <%= submit_tag 'Assign Passenger to Flight' %>
   <% end %>

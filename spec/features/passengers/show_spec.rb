@@ -29,7 +29,7 @@ RSpec.describe 'Passenger Show Page' do
     visit "/passengers/#{@passenger.id}"
 
     within '#assign-passenger-to-flight' do
-      fill_in 'Flight number', with: @flight_to_assign.id
+      fill_in 'Flight', with: @flight_to_assign.id
       click_button 'Assign Passenger to Flight'
     end
 
