@@ -1,11 +1,13 @@
 <h2>Passenger Details</h2>
 <p>Name: <%= @passenger.name %></p>
+<p>Age: <%= @passenger.age %></p>
 <hr>
 <table>
-  <th>Flights</th>
-  <% @passenger.flights.each do |passenger_flight| %>
-    <tr id="passenger-flight-<%= passenger_flight.id %>">
-      <td><%= link_to passenger_flight.number, "/flights/#{passenger_flight.id}" %>
+  <th>Airline</th><th>Flight Number</th>
+  <% @passenger.flights.each do |flight| %>
+    <tr id="passenger-flight-<%= flight.id %>">
+      <td><%= flight.airline.name %></td>
+      <td><%= link_to flight.number, "/flights/#{flight.id}" %>
     </tr>
   <% end %>
 </table>

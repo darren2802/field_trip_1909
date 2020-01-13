@@ -1,5 +1,8 @@
-<h2>Information for Flight <%= @flight.id %></h2>
+<h2>Information for Flight <%= @flight.number %> with <%= @flight.airline.name %></h2>
 <table id="flight-info">
+  <tr>
+    <td>Id:</td><td><%= @flight.id %></td>
+  </tr>
   <tr>
     <td>Number:</td><td><%= @flight.number %></td>
   </tr>
@@ -17,16 +20,16 @@
   </tr>
 </table>
 <hr>
-<p id='airline-info'>Name of airline: <%= @flight.airline.name %></p>
+<p id='airline-info'>Name of airline: <%= link_to @flight.airline.name, "/airlines/#{@flight.airline.id}" %></p>
 <hr>
 <p id='major-passengers-count'>Number of adult passengers on flight: <%= @flight.count_maj_passenger %></p>
 <p id='minor-passengers-count'>Number of minor passengers on flight: <%= @flight.count_min_passenger %></p>
 <hr>
 <table>
   <th>Passengers</th>
-  <% @flight.passengers.each do |passenger_flight| %>
-    <tr id="passenger-<%= passenger_flight.id %>">
-      <td><%= passenger_flight.name %></td>
+  <% @flight.passengers.each do |passenger| %>
+    <tr id="passenger-<%= passenger.id %>">
+      <td><%= link_to passenger.name, "/passengers/#{passenger.id}" %></td>
     </tr>
   <% end %>
 </table>
