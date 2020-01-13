@@ -10,5 +10,6 @@ RSpec.describe Flight, type: :model do
   end
   describe 'relationships' do
     it {should belong_to :airline}
+    it { should have_many :passenger_flights }
   end
 end
