@@ -20,8 +20,9 @@ airlines.each do |airline|
 end
 
 flights = Flight.all
+passengers = FactoryBot.create_list(:passenger, 1000)
 
 flights.each do |flight|
   rand_nr_passengers = rand(50..200)
-  flight.passengers << FactoryBot.create_list(:passenger, rand_nr_passengers)
+  flight.passengers << passengers.sample(rand_nr_passengers)
 end
