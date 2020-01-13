@@ -1,0 +1,29 @@
+<h2>Information for Flight <%= @flight.id %></h2>
+<table id="flight-info">
+  <tr>
+    <td>Number:</td><td><%= @flight.number %></td>
+  </tr>
+  <tr>
+    <td>Date:</td><td><%= @flight.date %></td>
+  </tr>
+  <tr>
+    <td>Time:</td><td><%= @flight.time %></td>
+  </tr>
+  <tr>
+    <td>Departure City:</td><td><%= @flight.departure_city %></td>
+  </tr>
+  <tr>
+    <td>Arrival City:</td><td><%= @flight.arrival_city %></td>
+  </tr>
+</table>
+<hr>
+<p id='airline-info'>Name of airline: <%= @flight.airline.name %></p>
+<hr>
+<table>
+  <th>Passengers</th>
+  <% @flight.passengers.each do |passenger_flight| %>
+    <tr id="passenger-<%= passenger_flight.id %>">
+      <td><%= passenger_flight.name %></td>
+    </tr>
+  <% end %>
+</table>
