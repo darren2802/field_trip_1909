@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+PassengerFlight.destroy_all
 Flight.destroy_all
 Airline.destroy_all
+Passenger.destroy_all
 
 airlines = FactoryBot.create_list(:airline, 20)
 
@@ -15,4 +17,11 @@ airlines.each do |airline|
   10.times do
     airline.flights << FactoryBot.create(:flight, airline_id: airline.id)
   end
+end
+
+flights = Flight.all
+
+flights.each do |flight|
+  rand_nr_passengers = rand(50..200)
+  flight.passengers << FactoryBot.create_list(:passenger, rand_nr_passengers)
 end
