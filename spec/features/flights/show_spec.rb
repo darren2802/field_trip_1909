@@ -30,6 +30,24 @@ RSpec.describe 'Flights Show Page' do
       end
     end
   end
+
+  it 'can display the number of minors and majors on a flight' do
+    airline = create :airline
+    flight = create(:flight, airline_id: airline.id)
+    passengers_minor = create_list(:passenger, 40, age: 16)
+    passengers_major = create_list(:passenger, 60, age: 21)
+    flight.passengers << passengers_minor
+    flight.passengers << passengers_major
+
+    visit "/flights/#{flight.id}"
+
+    within '#major-passengers-count' do
+      expect(page).to have_content("Number of adult passengers on flight: 60")
+    end
+    within '#minor-passengers-count' do
+      expect(page).to have_content("Number of minor passengers on flight: 40")
+    end
+  end
 end
 
 

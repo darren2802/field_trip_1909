@@ -19,6 +19,9 @@
 <hr>
 <p id='airline-info'>Name of airline: <%= @flight.airline.name %></p>
 <hr>
+<p id='major-passengers-count'>Number of adult passengers on flight: <%= @flight.count_maj_passenger %></p>
+<p id='minor-passengers-count'>Number of minor passengers on flight: <%= @flight.count_min_passenger %></p>
+<hr>
 <table>
   <th>Passengers</th>
   <% @flight.passengers.each do |passenger_flight| %>

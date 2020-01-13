@@ -4,4 +4,12 @@ class Flight <ApplicationRecord
 
   has_many :passenger_flights
   has_many :passengers, through: :passenger_flights
+
+  def count_maj_passenger
+    passengers.where('passengers.age >= 18').count
+  end
+
+  def count_min_passenger
+    passengers.where('passengers.age < 18').count
+  end
 end
